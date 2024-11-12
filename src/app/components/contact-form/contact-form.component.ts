@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgModel } from '@angular/forms';
 import { Message } from '../../models/message.model';
 
 @Component({
@@ -15,10 +15,10 @@ export class ContactFormComponent {
     lastname: "",
     firstname: "",
     email: "",
-    content: ""
+    content: "",
   };
 
   onSubmit(): void {
-    console.log(newMessage.value);
+    console.log(this.newMessage);
   }
 }
