@@ -17,14 +17,15 @@ export class ArticlePageComponent {
   articleId!: number;
   article$!: Observable<Article>;
 
-  http = inject(HttpClient);
-  apiService = inject(ApiService);
+  private apiUrl = 'http://localhost:3000/articles';
+
+  private apiService = inject(ApiService);
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.articleId = Number(params.get('id'));
+      this.article$ = this.apiService.getArticleById(this.articleId);
     });
-    this.article$ = this.apiService.getArticleById(this.articleId);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Article } from '../../models/article.model';
 import { CommonModule } from '@angular/common';
 import { ArticleThumbnailComponent } from '../article-thumbnail/article-thumbnail.component';
@@ -13,14 +13,13 @@ import { Observable } from 'rxjs';
   templateUrl: './article-list.component.html',
   styleUrl: './article-list.component.scss',
 })
-export class ArticleListComponent {
-  htpp = inject(HttpClient);
+export class ArticleListComponent implements OnInit {
+  http = inject(HttpClient);
   apiService = inject(ApiService);
   articles$!: Observable<Article[]>;
 
   ngOnInit() {
     this.articles$ = this.apiService.getArticles();
-    console.log(this.articles$);
   }
 
   handleLike(article: Article) {

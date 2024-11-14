@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Article } from '../models/article.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Article } from '../models/article.model';
 export class ApiService {
   private apiUrl = 'http://localhost:3000/articles';
 
-  private http = inject(HttpClient);
+  http = inject(HttpClient);
 
   getArticles(): Observable<Article[]> {
     return this.http.get<Article[]>(this.apiUrl);
