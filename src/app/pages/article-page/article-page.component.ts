@@ -17,5 +17,7 @@ export class ArticlePageComponent {
       this.articleId = Number(params.get('id'));
     });
   }
+
+  
 }
 
