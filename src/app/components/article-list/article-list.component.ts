@@ -27,12 +27,10 @@ export class ArticleListComponent implements OnInit {
   }
 
   getArticles$() {
-    return this.http.get<Article[]>(this.apiUrl).subscribe((data) => {
-      console.log('tableau de data', data);
-    });
+    return this.http.get<Article[]>(this.apiUrl);
   }
 
   getArticlesById$(id: number): Observable<Article> {
-    console.log(this.)
+    return this.http.get<Article>(`${this.apiUrl}/${id}`);
   }
 }
