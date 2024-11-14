@@ -29,8 +29,4 @@ export class ArticleListComponent implements OnInit {
   getArticles$() {
     return this.http.get<Article[]>(this.apiUrl);
   }
-
-  getArticlesById$(id: number): Observable<Article> {
-    return this.http.get<Article>(`${this.apiUrl}/${id}`);
-  }
 }
